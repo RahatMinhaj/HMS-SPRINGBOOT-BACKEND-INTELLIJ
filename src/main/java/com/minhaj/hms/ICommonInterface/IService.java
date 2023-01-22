@@ -6,12 +6,14 @@ import java.util.List;
 
 public interface IService<T> {
 
-    List<Departments> getAllList();
+    List<Departments> getAllLists();
 
-    Departments saveData(T t);
+    Departments saveDatas(T t);
 
-    Departments getById(Long id);
+    Departments getByIds(Long id);
 
     void deleteByIDs(Long id);
+
+    Departments editByIDs(Long id, Departments departments);
 
 }

@@ -31,4 +31,9 @@ public class test implements IController<Departments> {
     public void deleteByID(Long id) {
 
     }
+
+    @Override
+    public Departments editByID(Long id, Departments departments) {
+        return null;
+    }
 }

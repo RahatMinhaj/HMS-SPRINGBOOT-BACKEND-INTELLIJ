@@ -21,6 +21,9 @@ public interface IController<T> {
     @DeleteMapping("lists/delete/{id}")
     void deleteByID(@PathVariable Long id);
 
+    @PutMapping("lists/edit/{id}")
+    Departments editByID(@PathVariable Long id, @RequestBody Departments departments);
+
 
 
 

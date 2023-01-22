@@ -16,18 +16,18 @@ public class DepartmentService implements IService<Departments> {
     DepartmentRepository deptRepo;
 
     @Override
-    public List<Departments> getAllList() {
+    public List<Departments> getAllLists() {
         return deptRepo.findAll();
     }
 
 
     @Override
-    public Departments saveData(Departments departments) {
+    public Departments saveDatas(Departments departments) {
         return deptRepo.save(departments);
     }
 
     @Override
-    public Departments getById(Long id) {
+    public Departments getByIds(Long id) {
 
         return deptRepo.findById(id).get();
     }
@@ -36,6 +36,33 @@ public class DepartmentService implements IService<Departments> {
     public void deleteByIDs(Long id) {
         deptRepo.deleteById(id);
     }
+
+    @Override
+    public Departments editByIDs(Long id, Departments departments) {
+//         deptRepo.findById(id).get();
+
+        Departments dept = deptRepo.findById(id).get();
+
+//        dept.setId(departments.getId()); It generates an error when trying to edit becasuse it can not be changed because of auto increament
+        dept.setDept_name(departments.getDept_name());
+        dept.setDept_manager(departments.getDept_manager());
+        return deptRepo.save(dept);
+
+//                .map(
+//                dept ->{
+//                    dept.setDept_name(departments.getDept_name());
+//                    dept.setDept_manager(departments.getDept_manager());
+//                    return deptRepo.save(departments);
+//                }
+//        ).orElseGet(
+//                ()->{
+//                    departments.setId(id);
+//                    return deptRepo.save(departments);
+//                }
+//        );
+
+    }
+
 
 
 }
