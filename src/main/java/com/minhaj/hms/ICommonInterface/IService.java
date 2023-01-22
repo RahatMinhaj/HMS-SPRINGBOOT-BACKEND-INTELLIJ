@@ -10,4 +10,8 @@ public interface IService<T> {
 
     Departments saveData(T t);
 
+    Departments getById(Long id);
+
+    void deleteByIDs(Long id);
+
 }

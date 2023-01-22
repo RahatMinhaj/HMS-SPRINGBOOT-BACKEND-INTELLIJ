@@ -21,4 +21,14 @@ public class test implements IController<Departments> {
     public Departments create(Departments departments) {
         return null;
     }
+
+    @Override
+    public Departments getByID(Long id) {
+        return null;
+    }
+
+    @Override
+    public void deleteByID(Long id) {
+
+    }
 }

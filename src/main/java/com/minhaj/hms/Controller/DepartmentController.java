@@ -5,6 +5,7 @@ import com.minhaj.hms.Entity.Departments;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,4 +32,16 @@ public class DepartmentController implements IController<Departments> {
         System.out.println(departments.getDept_name());
         return deptService.saveData(departments);
     }
+
+    @Override
+    public Departments getByID(Long id) {
+       return deptService.getById(id);
+    }
+
+    @Override
+    public void deleteByID(Long id) {
+        deptService.deleteByIDs(id);
+    }
+
+
 }
