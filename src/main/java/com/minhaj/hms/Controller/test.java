@@ -2,6 +2,7 @@ package com.minhaj.hms.Controller;
 
 import com.minhaj.hms.Entity.Departments;
 import com.minhaj.hms.ICommonInterface.IController;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,8 +29,9 @@ public class test implements IController<Departments> {
     }
 
     @Override
-    public void deleteByID(Long id) {
+    public ResponseEntity<String> deleteByID(Long id) {
 
+        return null;
     }
 
     @Override

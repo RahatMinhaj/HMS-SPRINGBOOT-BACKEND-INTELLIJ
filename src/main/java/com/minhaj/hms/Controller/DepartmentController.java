@@ -5,6 +5,8 @@ import com.minhaj.hms.Entity.Departments;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,15 +42,19 @@ public class DepartmentController implements IController<Departments> {
     }
 
     @Override
-    public void deleteByID(Long id) {
-        deptService.deleteByIDs(id);
+    public ResponseEntity<String> deleteByID(Long id) {
+        try {
+            deptService.deleteByIDs(id);
+            return new ResponseEntity<>("Data deleted successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error deleting data", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-
-
 
 
     @Override
     public Departments editByID(Long id, Departments departments) {
+        System.out.println();
         Departments dept = deptService.editByIDs(id , departments);
         System.out.println(dept.getDept_name());
         return dept;

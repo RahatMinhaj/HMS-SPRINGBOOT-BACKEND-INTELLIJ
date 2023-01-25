@@ -2,6 +2,7 @@ package com.minhaj.hms.ICommonInterface;
 
 
 import com.minhaj.hms.Entity.Departments;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,10 +19,10 @@ public interface IController<T> {
     Departments getByID(@PathVariable Long id);
 
 
-    @DeleteMapping("lists/delete/{id}")
-    void deleteByID(@PathVariable Long id);
+    @DeleteMapping("/lists/delete/{id}")
+    ResponseEntity<String> deleteByID(@PathVariable Long id);
 
-    @PutMapping("lists/edit/{id}")
+    @PutMapping("/lists/edit/{id}")
     Departments editByID(@PathVariable Long id, @RequestBody Departments departments);
 
 
