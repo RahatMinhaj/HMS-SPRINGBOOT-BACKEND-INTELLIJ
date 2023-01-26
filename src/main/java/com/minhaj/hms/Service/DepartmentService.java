@@ -26,15 +26,22 @@ public class DepartmentService implements IService<Departments> {
         return deptRepo.save(departments);
     }
 
-    @Override
-    public Departments getByIds(Long id) {
 
-        return deptRepo.findById(id).get();
-    }
 
     @Override
     public void deleteByIDs(Long id) {
         deptRepo.deleteById(id);
+    }
+
+
+
+
+
+
+//======================edit Method: start=========================
+    @Override
+    public Departments getByIds(Long id) {
+        return deptRepo.findById(id).get();
     }
 
     @Override
@@ -62,6 +69,8 @@ public class DepartmentService implements IService<Departments> {
 //        );
 
     }
+    //======================edit Method: end=========================
+
 
 
 

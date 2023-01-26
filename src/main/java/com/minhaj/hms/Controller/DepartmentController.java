@@ -54,9 +54,9 @@ public class DepartmentController implements IController<Departments> {
 
     @Override
     public Departments editByID(Long id, Departments departments) {
-        System.out.println();
+//        System.out.println("edit by id method called");
         Departments dept = deptService.editByIDs(id , departments);
-        System.out.println(dept.getDept_name());
+//        System.out.println(dept.getDept_name());
         return dept;
     }
 

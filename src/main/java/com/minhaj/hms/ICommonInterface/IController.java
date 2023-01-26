@@ -15,15 +15,22 @@ public interface IController<T> {
     @PostMapping("/create")
     public Departments create(@RequestBody T t);
 
-    @GetMapping("/lists/{id}")
+
+
+
+//========================Edit Method: start ===========================
+    @GetMapping("/lists/editbyid/{id}")
     Departments getByID(@PathVariable Long id);
 
+    @PutMapping("/lists/edit/{id}")
+    Departments editByID(@PathVariable Long id, @RequestBody Departments departments);
+    //========================Edit Method: end ===========================
+    
 
     @DeleteMapping("/lists/delete/{id}")
     ResponseEntity<String> deleteByID(@PathVariable Long id);
 
-    @PutMapping("/lists/edit/{id}")
-    Departments editByID(@PathVariable Long id, @RequestBody Departments departments);
+
 
 
 
