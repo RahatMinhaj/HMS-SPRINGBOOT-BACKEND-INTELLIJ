@@ -22,7 +22,7 @@ public interface IController<T> {
     @GetMapping("/lists/editbyid/{id}")
     Departments getByID(@PathVariable Long id);
 
-    @PutMapping("/lists/edit/{id}")
+    @PutMapping("/lists/update/{id}")
     Departments editByID(@PathVariable Long id, @RequestBody Departments departments);
     //========================Edit Method: end ===========================
     

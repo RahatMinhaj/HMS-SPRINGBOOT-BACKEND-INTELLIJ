@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public abstract class BaseModel {
+public abstract class BaseEntity {
 
 
     @Id
