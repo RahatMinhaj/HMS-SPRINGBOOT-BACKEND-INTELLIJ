@@ -8,5 +8,4 @@ import java.util.List;
 public interface IRepository extends JpaRepository<Departments , Long> {
 
 
-
 }

@@ -23,6 +23,7 @@ public class DepartmentService implements IService<Departments> {
 
     @Override
     public Departments saveDatas(Departments departments) {
+
         return deptRepo.save(departments);
     }
 
