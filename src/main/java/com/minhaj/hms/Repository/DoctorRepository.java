@@ -1,6 +1,9 @@
 package com.minhaj.hms.Repository;
 
-import com.minhaj.hms.ICommonInterface.IRepository;
+import com.minhaj.hms.Entity.Doctor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface DoctorRepository extends IRepository {
+@Repository
+public interface DoctorRepository extends JpaRepository<Doctor , Long> {
 }

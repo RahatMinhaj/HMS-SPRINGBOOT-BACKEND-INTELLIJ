@@ -5,11 +5,11 @@ import com.minhaj.hms.Entity.Departments;
 import com.minhaj.hms.ICommonInterface.IService;
 import com.minhaj.hms.Repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
+@Service
 public class DepartmentService implements IService<Departments> {
 
     @Autowired

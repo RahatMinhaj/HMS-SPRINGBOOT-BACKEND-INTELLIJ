@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -34,6 +35,11 @@ public class DepartmentController implements IController<Departments> {
     public Departments create(Departments departments) {
         System.out.println(departments.getDept_name());
         return deptService.saveDatas(departments);
+    }
+
+    @Override
+    public Departments create(Departments departments, MultipartFile image) {
+        return null;
     }
 
     @Override

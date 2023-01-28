@@ -1,19 +1,18 @@
 package com.minhaj.hms.ICommonInterface;
 
-import com.minhaj.hms.Entity.Departments;
-
 import java.util.List;
+import java.util.Optional;
 
 public interface IService<T> {
 
-    List<Departments> getAllLists();
+    List<T> getAllLists();
 
-    Departments saveDatas(T t);
+    T saveDatas(T t);
 
-    Departments getByIds(Long id);
+    T getByIds(Long id);
 
     void deleteByIDs(Long id);
 
-    Departments editByIDs(Long id, Departments departments);
+    T editByIDs(Long id, T t);
 
 }

@@ -13,15 +13,16 @@ import java.sql.Date;
 @Setter
 public class Doctor extends BaseEntity {
 
-    String first_name;
-    String last_name;
-    String mobile;
-    Long dept_id;
-    String degree;
-    String specialization;
-    String details;
-    Double visit_charge;
-    Date doc_join_date;
+    private String first_name;
+    private String last_name;
+    private String mobile;
+    private Long dept_id;
+    private String degree;
+    private String specialization;
+    private String details;
+    private Double visit_charge;
+    private Date doc_join_date;
+    private String image_path;
 
 
 
