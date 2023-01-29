@@ -55,12 +55,15 @@ public class DoctorController implements IController<Doctor> {
 
     @Override
     public Doctor getByID(Long id) {
-        return null;
+        return docService.getByIds(id);
     }
 
     @Override
     public Doctor editByID(Long id, Doctor doctor) {
-        return null;
+        System.out.println("edit by id called");
+        Doctor dc = docService.editByIDs(id,doctor);
+        System.out.println("edit by id called 2");
+        return dc;
     }
 
 

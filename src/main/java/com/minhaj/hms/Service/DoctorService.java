@@ -27,7 +27,8 @@ public class DoctorService implements IService<Doctor> {
 
     @Override
     public Doctor getByIds(Long id) {
-        return null;
+
+        return doctRepo.findById(id).get();
     }
 
     @Override
@@ -37,6 +38,16 @@ public class DoctorService implements IService<Doctor> {
 
     @Override
     public Doctor editByIDs(Long id, Doctor doctor) {
-        return null;
+        Doctor dc = doctRepo.findById(id).get();
+
+        dc.setFirst_name(doctor.getFirst_name());
+        dc.setLast_name(doctor.getLast_name());
+        dc.setMobile(doctor.getMobile());
+        dc.setDept_id(doctor.getDept_id());
+        dc.setDegree(doctor.getDegree());
+        dc.setSpecialization(doctor.getSpecialization());
+        dc.setDetails(doctor.getDetails());
+        dc.setVisit_charge(doctor.getVisit_charge());
+        return doctRepo.save(dc);
     }
 }

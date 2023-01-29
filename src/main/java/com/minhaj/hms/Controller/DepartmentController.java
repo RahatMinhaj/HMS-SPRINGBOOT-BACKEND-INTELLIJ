@@ -44,7 +44,8 @@ public class DepartmentController implements IController<Departments> {
 
     @Override
     public Departments getByID(Long id) {
-       return deptService.getByIds(id);
+
+        return deptService.getByIds(id);
     }
 
     @Override
