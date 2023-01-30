@@ -1,12 +1,12 @@
 package com.minhaj.hms.ICommonInterface;
 
 
+import com.minhaj.hms.DTM.DeleteMessage;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IController<T> {
 
@@ -32,7 +32,7 @@ public interface IController<T> {
     
 
     @DeleteMapping("/lists/delete/{id}")
-    ResponseEntity<String> deleteByID(@PathVariable Long id);
+    ResponseEntity<DeleteMessage> deleteByID(@PathVariable Long id);
 
 
 

@@ -1,5 +1,6 @@
 package com.minhaj.hms.Controller;
 
+import com.minhaj.hms.DTM.DeleteMessage;
 import com.minhaj.hms.Entity.Patient;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.PatientService;
@@ -47,7 +48,7 @@ public class PatientController implements IController<Patient> {
     }
 
     @Override
-    public ResponseEntity<String> deleteByID(Long id) {
+    public ResponseEntity<DeleteMessage> deleteByID(Long id) {
         return null;
     }
 }

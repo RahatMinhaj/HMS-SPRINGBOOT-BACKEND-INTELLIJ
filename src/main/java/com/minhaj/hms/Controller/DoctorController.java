@@ -1,25 +1,21 @@
 package com.minhaj.hms.Controller;
 
+import com.minhaj.hms.DTM.DeleteMessage;
 import com.minhaj.hms.Entity.Doctor;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.print.Doc;
-import java.awt.*;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/" , allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200/", allowedHeaders = "*")
 @RequestMapping("/doctor")
 public class DoctorController implements IController<Doctor> {
 
@@ -61,18 +57,24 @@ public class DoctorController implements IController<Doctor> {
     @Override
     public Doctor editByID(Long id, Doctor doctor) {
         System.out.println("edit by id called");
-        Doctor dc = docService.editByIDs(id,doctor);
+        Doctor dc = docService.editByIDs(id, doctor);
         System.out.println("edit by id called 2");
         return dc;
     }
 
 
     @Override
-    public ResponseEntity<String> deleteByID(Long id) {
-        return null;
-    }
+    public ResponseEntity<DeleteMessage> deleteByID(Long id) {
+//        System.out.println("del method called");
+        try {
+            docService.deleteByIDs(id);
+            return new ResponseEntity<>(new DeleteMessage("Data Deleted, Message From SpringBoot!"), HttpStatus.OK);
+        } catch (Exception e) {
+//            System.out.println("Generating erro");
+            return new ResponseEntity<>(new DeleteMessage("Data is not Deleted!, Message From SpringBoot! "), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
-//    DoctorService docService;
+    }
 
 
 

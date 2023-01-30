@@ -33,6 +33,8 @@ public class DoctorService implements IService<Doctor> {
 
     @Override
     public void deleteByIDs(Long id) {
+         doctRepo.deleteById(id);
+
 
     }
 

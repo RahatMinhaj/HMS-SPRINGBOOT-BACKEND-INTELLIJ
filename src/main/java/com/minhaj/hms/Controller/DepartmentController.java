@@ -1,6 +1,7 @@
 package com.minhaj.hms.Controller;
 
 
+import com.minhaj.hms.DTM.DeleteMessage;
 import com.minhaj.hms.Entity.Departments;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.DepartmentService;
@@ -49,15 +50,31 @@ public class DepartmentController implements IController<Departments> {
     }
 
     @Override
-    public ResponseEntity<String> deleteByID(Long id) {
+    public ResponseEntity<DeleteMessage> deleteByID(Long id) {
+
         try {
             deptService.deleteByIDs(id);
-            return new ResponseEntity<>("Data deleted successfully", HttpStatus.OK);
+            return new ResponseEntity<>(new DeleteMessage("Data Deleted Successfully!"), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>("Error deleting data", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new DeleteMessage("Data Deleted is not Success!"), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+//
+//    static class  DeleteSuccess{
+//       private String message;
+//
+//        public DeleteSuccess(String message) {
+//            this.message = message;
+//        }
+//
+//        public String getMessage() {
+//            return message;
+//        }
+//
+//        public void setMessage(String message) {
+//            this.message = message;
+//        }
+//    }
 
     @Override
     public Departments editByID(Long id, Departments departments) {

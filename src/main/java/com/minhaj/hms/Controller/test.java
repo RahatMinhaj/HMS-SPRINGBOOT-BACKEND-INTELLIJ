@@ -1,8 +1,8 @@
 package com.minhaj.hms.Controller;
 
+import com.minhaj.hms.DTM.DeleteMessage;
 import com.minhaj.hms.Entity.Departments;
 import com.minhaj.hms.ICommonInterface.IController;
-import com.minhaj.hms.Service.DoctorService;
 import com.minhaj.hms.Service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/tsp")
@@ -45,7 +44,7 @@ public class test implements IController<Departments> {
     }
 
     @Override
-    public ResponseEntity<String> deleteByID(Long id) {
+    public ResponseEntity<DeleteMessage> deleteByID(Long id) {
 
         return null;
     }
