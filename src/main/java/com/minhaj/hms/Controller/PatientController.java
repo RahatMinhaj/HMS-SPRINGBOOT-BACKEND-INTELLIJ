@@ -5,8 +5,10 @@ import com.minhaj.hms.Entity.Patient;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,10 +23,10 @@ public class PatientController implements IController<Patient> {
     PatientService patientService;
 
 
-
     @Override
     public List<Patient> getList() {
-        return null;
+
+        return patientService.getAllLists();
     }
 
     @Override
@@ -39,16 +41,24 @@ public class PatientController implements IController<Patient> {
 
     @Override
     public Patient getByID(Long id) {
-        return null;
+
+        return patientService.getByIds(id);
     }
 
     @Override
     public Patient editByID(Long id, Patient patient) {
-        return null;
+
+        return patientService.editByIDs(id, patient);
     }
 
     @Override
     public ResponseEntity<DeleteMessage> deleteByID(Long id) {
-        return null;
+        try {
+            patientService.deleteByIDs(id);
+            return new ResponseEntity<>(new DeleteMessage("Data Deleted, Message From SpringBoot!"), HttpStatus.OK);
+        } catch (Exception e) {
+//            System.out.println("Generating erro");
+            return new ResponseEntity<>(new DeleteMessage("Data is not Deleted!, Message From SpringBoot! "), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

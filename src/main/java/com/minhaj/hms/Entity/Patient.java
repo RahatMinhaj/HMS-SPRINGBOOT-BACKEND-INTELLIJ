@@ -19,6 +19,7 @@ public class Patient extends BaseEntity { private String p_first_name;
    private String p_address;
    private  String p_mobile;
    private  String p_imageurl;
-  private String platform;
+  private String p_platform;
+
 
 }
