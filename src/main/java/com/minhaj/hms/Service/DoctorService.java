@@ -7,6 +7,7 @@ import com.minhaj.hms.Repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
 import java.util.List;
 @Service
 public class DoctorService implements IService<Doctor> {
@@ -52,4 +53,20 @@ public class DoctorService implements IService<Doctor> {
         dc.setVisit_charge(doctor.getVisit_charge());
         return doctRepo.save(dc);
     }
+
+
+
+
+
+
+
+    public List<Doctor> getListByDept(Long deptID){
+        System.out.println(deptID + "Pring From Service=================");
+        return doctRepo.getDept(deptID);
+//        return null;
+    }
+
+
+
+
 }
