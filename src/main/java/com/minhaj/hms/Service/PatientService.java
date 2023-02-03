@@ -45,7 +45,8 @@ public class PatientService implements IService<Patient> {
         pt.setP_last_name(patient.getP_last_name());
         pt.setP_age(patient.getP_age());
         pt.setP_weight(patient.getP_weight());
-        pt.setP_gender(patient.getP_mobile());
+        pt.setP_gender(patient.getP_gender());
+        pt.setP_mobile(patient.getP_mobile());
         pt.setP_address(patient.getP_address());
         pt.setP_platform(patient.getP_platform());
 
