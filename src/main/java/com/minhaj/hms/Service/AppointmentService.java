@@ -16,6 +16,21 @@ public class AppointmentService implements IService<Appointment> {
     AppointmentRepository appointRepo;
 
 
+
+    public Appointment upVal(Long id, Appointment apModel){
+        Appointment ap = appointRepo.findById(id).get();
+        ap.setApStatus("confirmed");
+        return appointRepo.save(ap);
+
+    }
+
+
+
+
+
+
+
+
     @Override
     public List<Appointment> getAllLists() {
 
@@ -51,5 +66,12 @@ return appointRepo.getAppoinListBy(type);
     @Override
     public Appointment editByIDs(Long id, Appointment appointment) {
         return null;
+    }
+
+    public Integer upAllVal(List<Long> ids, String status) {
+        System.out.println(ids);
+        System.out.println(status);
+//        appointRepo.updateAllData(ids, status);
+        return appointRepo.updateAllData(ids, status);
     }
 }

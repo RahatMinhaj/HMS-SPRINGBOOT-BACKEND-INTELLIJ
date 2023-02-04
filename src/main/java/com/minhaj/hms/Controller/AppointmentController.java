@@ -1,10 +1,12 @@
 package com.minhaj.hms.Controller;
 
+import com.minhaj.hms.DTM.AppointmentChangeMessage;
 import com.minhaj.hms.DTM.DeleteMessage;
 import com.minhaj.hms.Entity.Appointment;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +20,33 @@ public class AppointmentController implements IController<Appointment> {
 
     @Autowired
     AppointmentService appointService;
+
+
+    @PutMapping("data/update/{id}")
+    public Appointment updateVal(@PathVariable("id") Long id, @RequestBody Appointment apModel){
+        return appointService.upVal(id,apModel);
+    }
+
+    @GetMapping("data/updateAll")
+    public ResponseEntity<AppointmentChangeMessage> updateAllVal(@RequestParam(value = "ids") List<Long> ids, @RequestParam(value = "status") String status){
+        Integer updatedDataCount =appointService.upAllVal(ids, status);
+//        try {
+//            deptService.deleteByIDs(id);
+            return new ResponseEntity<>(new AppointmentChangeMessage("Total Row Count: " + updatedDataCount), HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(new AppointmentChangeMessage("Data Deleted is not Success!"), HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public List<Appointment> getList() {
