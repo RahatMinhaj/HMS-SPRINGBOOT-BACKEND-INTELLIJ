@@ -17,6 +17,13 @@ import java.util.List;
 @RequestMapping("/doctor")
 public class DoctorController implements IController<Doctor> {
 
+
+    @GetMapping("/test")
+    public String testMeth(){
+        System.out.println("test hitted");
+        return "Test passed!";
+    }
+
     @Autowired
     private DoctorService docService;
 
