@@ -25,8 +25,6 @@ public abstract class BaseEntity {
     private Long id;
 
 
-    private Boolean active;
-
     @CreatedDate
     private LocalDateTime createdAt;
 
@@ -37,6 +35,7 @@ public abstract class BaseEntity {
 
     private Integer updatedBy;
 
+    private Boolean active;
     @PrePersist
     public void prePersist() {
         this.active = true;

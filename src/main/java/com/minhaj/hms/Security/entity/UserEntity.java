@@ -41,7 +41,7 @@ public class UserEntity implements UserDetails {
                     @JoinColumn(name = "ROLE_ID")
             }
     )
-    private Set<UserRoleModel> userRoleModel;
+    private Set<Role> role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

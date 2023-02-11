@@ -1,7 +1,7 @@
 package com.minhaj.hms.Security.service;
 
 import com.minhaj.hms.Security.entity.UserEntity;
-import com.minhaj.hms.Security.entity.UserRoleModel;
+import com.minhaj.hms.Security.entity.Role;
 import com.minhaj.hms.Security.repository.RoleRepository;
 import com.minhaj.hms.Security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +30,12 @@ public class UserService {
 
     public void initRoleAndUser() {
 
-        UserRoleModel adminRole = new UserRoleModel();
+        Role adminRole = new Role();
         adminRole.setRoleName("Admin");
         adminRole.setRoleDescription("Admin role Description");
         roleRepo.save(adminRole);
 
-        UserRoleModel userRole = new UserRoleModel();
+        Role userRole = new Role();
         userRole.setRoleName("User");
         userRole.setRoleDescription("Default role for newly created record");
         roleRepo.save(userRole);
@@ -46,9 +46,9 @@ public class UserService {
         adminUser.setUserFirstName("admin");
         adminUser.setUserLastName("admin");
         adminUser.setEmail("admin@gmail.com");
-        Set<UserRoleModel> adminRoles = new HashSet<>();
+        Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
-        adminUser.setUserRoleModel(adminRoles);
+        adminUser.setRole(adminRoles);
         userRepo.save(adminUser);
 
 //        User user = new User();
@@ -64,11 +64,11 @@ public class UserService {
 
 
     public UserEntity UserRegistration(UserEntity user){
-        UserRoleModel ur = roleRepo.findById("User").get();
-        Set<UserRoleModel> userRoles = new HashSet<>();
+        Role ur = roleRepo.findById("User").get();
+        Set<Role> userRoles = new HashSet<>();
         userRoles.add(ur);
 
-        user.setUserRoleModel(userRoles);
+        user.setRole(userRoles);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepo.save(user);
 

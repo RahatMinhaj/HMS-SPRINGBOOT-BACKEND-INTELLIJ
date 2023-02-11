@@ -49,7 +49,7 @@ public class JWutil {
         UserEntity user = (UserEntity) userDetails;
 //        Map<String, Object> claims = new HashMap<>();
         final Claims claims = Jwts.claims().setSubject(user.getUsername());
-        claims.put("roles", new ArrayList<>(user.getUserRoleModel()));
+        claims.put("roles", new ArrayList<>(user.getRole()));
         claims.put("name", user.getUserFirstName()!=null?user.getUserFirstName():"");
         claims.put("email", user.getEmail()!=null?user.getEmail():"");
         return Jwts.builder()

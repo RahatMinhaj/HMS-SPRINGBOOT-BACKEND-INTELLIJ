@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 
-    private static final String[] PUBLIC_URLS = {"/api/auth/**", "/registerNewUser","/api/test/**","/signup"};
+    private static final String[] PUBLIC_URLS = {"/auth/**", "/registerNewUser","/api/test/**","/signup"};
 
     @Bean
     @Override

@@ -65,7 +65,7 @@ public class SecurityService implements UserDetailsService {
 
     private Set<SimpleGrantedAuthority> getAuthority(UserEntity user) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        user.getUserRoleModel().forEach(role -> {
+        user.getRole().forEach(role -> {
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleName()));
         });
         return authorities;

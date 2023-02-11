@@ -4,15 +4,13 @@ import com.minhaj.hms.Security.DTO.SignupDTORequest;
 import com.minhaj.hms.Security.entity.UserEntity;
 import com.minhaj.hms.Security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @RestController
+@RequestMapping("/auth")
 public class UserController {
 
     @Autowired
@@ -26,12 +24,12 @@ public class UserController {
 
 
 
-    @PostMapping({"/signup"})
-    public UserEntity registerNewUserNew(@RequestBody SignupDTORequest reqFromDTO) {
+    @PostMapping({"/registration"})
+    public UserEntity registerNewUserNew(@RequestBody SignupDTORequest signupDTORequest) {
         UserEntity user = new UserEntity();
-        user.setUserName(reqFromDTO.getUserName());
-        user.setEmail(reqFromDTO.getEmail());
-        user.setPassword(reqFromDTO.getPassword());
+        user.setUserName(signupDTORequest.getUserName());
+        user.setEmail(signupDTORequest.getEmail());
+        user.setPassword(signupDTORequest.getPassword());
 
         return uService.UserRegistration(user);
 

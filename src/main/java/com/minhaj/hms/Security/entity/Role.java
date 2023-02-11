@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class UserRoleModel {
+public class Role {
 
     @Id
     private String roleName;
@@ -26,9 +26,9 @@ public class UserRoleModel {
         this.roleDescription = roleDescription;
     }
 
-    public UserRoleModel() {
+    public Role() {
     }
-    public UserRoleModel(String roleName) {
+    public Role(String roleName) {
         this.roleName = roleName;
     }
 }

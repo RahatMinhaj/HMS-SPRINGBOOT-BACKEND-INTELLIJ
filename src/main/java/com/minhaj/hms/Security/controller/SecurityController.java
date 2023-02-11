@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 //@CrossOrigin("*")
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class SecurityController {
 
 
@@ -28,8 +28,9 @@ public class SecurityController {
 
 
 
-    @PostMapping({"/signing"})
+    @PostMapping({"/login"})
     public JwtResponse createJwtToken22(@RequestBody LoginDTORequest loginRequest) throws Exception {
+
         System.out.println("Test Action");
 //        (@RequestBody JwtRequest jwtRequest)
         JwtRequest jwtRequest = new JwtRequest();
