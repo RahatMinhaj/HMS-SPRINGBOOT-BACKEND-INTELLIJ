@@ -1,4 +1,8 @@
 package com.minhaj.hms.Entity;
 
-public class Supplier {
+import com.minhaj.hms.ICommonInterface.BaseEntity;
+
+public class Supplier extends BaseEntity {
+
+
 }

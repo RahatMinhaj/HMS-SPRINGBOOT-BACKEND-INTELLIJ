@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/" , allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200" , allowedHeaders = "*")
 @RequestMapping("/patient")
 public class PatientController implements IController<Patient> {
     @Autowired

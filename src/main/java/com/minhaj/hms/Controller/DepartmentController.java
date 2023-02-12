@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/" , allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200" , allowedHeaders = "*")
 @RequestMapping("/department")
 public class DepartmentController implements IController<Departments> {
 

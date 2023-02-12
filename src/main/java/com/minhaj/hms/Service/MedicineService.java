@@ -19,7 +19,7 @@ public class MedicineService implements IService<Medicine> {
 
     @Override
     public List<Medicine> getAllLists() {
-        return null;
+        return medRepo.findAll();
     }
 
     @Override

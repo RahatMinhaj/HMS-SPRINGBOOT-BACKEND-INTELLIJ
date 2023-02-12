@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/" , allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200" , allowedHeaders = "*")
 @RequestMapping("/medicine")
 public class MedicineController implements IController<Medicine> {
 
@@ -24,15 +24,12 @@ public class MedicineController implements IController<Medicine> {
 
     @Override
     public List<Medicine> getList() {
-        return null;
+        return medService.getAllLists();
     }
 
 
     @Override
     public Medicine create(Medicine medicine) {
-
-        System.out.println(medicine.getMed_name() + "      ======================Printed====");
-
         return medService.saveDatas(medicine);
     }
 
