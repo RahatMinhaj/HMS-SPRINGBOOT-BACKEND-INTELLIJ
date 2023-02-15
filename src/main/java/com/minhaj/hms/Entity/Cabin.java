@@ -25,13 +25,4 @@ public class Cabin extends BaseEntity {
     @OneToOne(mappedBy = "cabin")
     private Patient patient;
 
-//    @OneToOne
-//    @JoinColumn(name = "dep_id")
-//    private Departments dep;
-
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @MapsId
-//    @JoinColumn(name = "patient_id")
-//    private Patient patient;
-
 }

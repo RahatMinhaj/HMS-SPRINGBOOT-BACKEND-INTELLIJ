@@ -18,6 +18,11 @@ import java.util.List;
 public class DoctorController implements IController<Doctor> {
 
 
+
+
+
+
+
     @GetMapping("/test")
     public String testMeth(){
         System.out.println("test hitted");

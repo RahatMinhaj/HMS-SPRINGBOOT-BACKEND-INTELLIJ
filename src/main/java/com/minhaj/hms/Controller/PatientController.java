@@ -1,15 +1,15 @@
 package com.minhaj.hms.Controller;
 
 import com.minhaj.hms.DTM.DeleteMessage;
+import com.minhaj.hms.DTM.Messages;
 import com.minhaj.hms.Entity.Patient;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -20,6 +20,22 @@ import java.util.List;
 public class PatientController implements IController<Patient> {
     @Autowired
     PatientService patientService;
+
+    @GetMapping("updatecabin/")
+    public ResponseEntity<Messages> changeCabinStatus(@RequestParam("pid") Long id , @RequestParam("status") String status ) {
+        System.out.println("method hitted with parametre :          " + id + status);
+
+        try {
+            patientService.changeCabinStatuss(id, status);
+            return new ResponseEntity<>(new Messages("Cabin Status Updated!"),HttpStatus.OK);
+
+        }catch (Exception e) {
+            return new ResponseEntity<>(new Messages("Cabin Status is Not Updated!"), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 
 
     @Override

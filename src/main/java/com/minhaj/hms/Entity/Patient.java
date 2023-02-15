@@ -27,6 +27,9 @@ public class Patient extends BaseEntity {
    private  String p_mobile;
    private  String p_imageurl;
    private String p_platform;
+   private String cabin_status;
+
+
 
     @OneToOne
     @JoinColumn(name = "cabin_id", referencedColumnName = "id")

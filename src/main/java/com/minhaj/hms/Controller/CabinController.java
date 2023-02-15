@@ -38,6 +38,8 @@ public class CabinController implements IController<Cabin> {
         }
 
         return cabinList;
+
+//        return cabins;
     }
 
     @Override

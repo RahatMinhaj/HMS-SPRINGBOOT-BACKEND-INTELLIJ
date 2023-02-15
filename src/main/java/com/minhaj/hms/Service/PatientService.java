@@ -15,6 +15,16 @@ public class PatientService implements IService<Patient> {
     @Autowired
     PatientRepository patientRepo;
 
+
+
+    public void changeCabinStatuss(Long id, String status){
+        System.out.println("method executed from Patient service : " + id  + status);
+        patientRepo.changeStatusRepo(id,status);
+    }
+
+
+
+
     @Override
     public List<Patient> getAllLists() {
         List<Patient> pt= patientRepo.findAll();
