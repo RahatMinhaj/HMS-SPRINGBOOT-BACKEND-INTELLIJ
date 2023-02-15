@@ -18,7 +18,7 @@ public class CabinService implements IService<Cabin> {
 
     @Override
     public List<Cabin> getAllLists() {
-        return null;
+        return cabinRepo.findAll();
     }
 
     @Override
@@ -38,6 +38,10 @@ public class CabinService implements IService<Cabin> {
 
     @Override
     public Cabin editByIDs(Long id, Cabin cabin) {
+        Cabin cb = cabinRepo.findById(id).get();
+
+
+
         return null;
     }
 }

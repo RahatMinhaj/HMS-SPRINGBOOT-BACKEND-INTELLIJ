@@ -4,10 +4,7 @@ package com.minhaj.hms.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -20,5 +17,9 @@ public class Departments {
     Long id;
     private String dept_name;
     private String dept_manager;
+//
+//    @javax.persistence.OneToOne
+//    @JoinColumn(name = "cabin_id")
+//    private Cabin cabin;
 
 }

@@ -2,11 +2,11 @@ package com.minhaj.hms.Service;
 
 import com.minhaj.hms.Entity.Patient;
 import com.minhaj.hms.ICommonInterface.IService;
-import com.minhaj.hms.Repository.DoctorRepository;
 import com.minhaj.hms.Repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,7 +17,17 @@ public class PatientService implements IService<Patient> {
 
     @Override
     public List<Patient> getAllLists() {
-        return patientRepo.findAll();
+        List<Patient> pt= patientRepo.findAll();
+        List<Patient> ptList= new ArrayList<>();
+
+        for (Patient p:pt) {
+            if (p.getCabin()!=null){
+                p.getCabin().setPatient(null);
+            }
+            ptList.add(p);
+        }
+        return ptList;
+
     }
 
     @Override

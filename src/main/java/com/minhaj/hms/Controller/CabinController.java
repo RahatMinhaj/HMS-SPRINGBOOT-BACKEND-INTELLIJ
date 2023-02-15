@@ -2,6 +2,7 @@ package com.minhaj.hms.Controller;
 
 import com.minhaj.hms.DTM.DeleteMessage;
 import com.minhaj.hms.Entity.Cabin;
+import com.minhaj.hms.Entity.Doctor;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.CabinService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,7 +27,17 @@ public class CabinController implements IController<Cabin> {
 
     @Override
     public List<Cabin> getList() {
-        return null;
+        List<Cabin> cabins = cabinService.getAllLists();
+        List<Cabin> cabinList = new ArrayList<>();
+        for (Cabin c : cabins
+        ){
+            if (c.getPatient()!=null){
+                c.getPatient().setCabin(null);
+            }
+            cabinList.add(c);
+        }
+
+        return cabinList;
     }
 
     @Override
@@ -45,7 +57,11 @@ public class CabinController implements IController<Cabin> {
 
     @Override
     public Cabin editByID(Long id, Cabin cabin) {
-        return null;
+
+        System.out.println("edit by id called");
+        Cabin cb = cabinService.editByIDs(id, cabin);
+        System.out.println("edit by id called 2");
+        return cb;
     }
 
     @Override

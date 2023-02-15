@@ -15,7 +15,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="HMS-SpringBoot-Intellij" />
+          <factory-entry name="HMS-SpringBoot-Intellij" value="eb3ae162-d0cc-43fb-9ba3-3d9f0cf022b3" />
           <factory-entry name="entityManagerFactory" />
         </datasource-mapping>
         <naming-strategy-map />
