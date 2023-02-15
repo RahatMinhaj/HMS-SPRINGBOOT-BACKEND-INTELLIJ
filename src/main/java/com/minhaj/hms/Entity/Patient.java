@@ -4,7 +4,10 @@ import com.minhaj.hms.ICommonInterface.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 @Getter
@@ -20,6 +23,10 @@ public class Patient extends BaseEntity { private String p_first_name;
    private  String p_mobile;
    private  String p_imageurl;
   private String p_platform;
+
+//  @OneToOne(cascade = CascadeType.ALL)
+//  @JoinColumn(name = "cabin_id")
+//  private Cabin cabin;
 
 
 }

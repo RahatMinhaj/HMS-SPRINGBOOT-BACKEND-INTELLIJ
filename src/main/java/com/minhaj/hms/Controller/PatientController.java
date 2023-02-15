@@ -29,6 +29,10 @@ public class PatientController implements IController<Patient> {
         return patientService.getAllLists();
     }
 
+
+
+
+
     @Override
     public Patient create(Patient patient) {
         return patientService.saveDatas(patient);
