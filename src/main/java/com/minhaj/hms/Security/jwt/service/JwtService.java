@@ -35,7 +35,7 @@ public class JwtService implements UserDetailsService {
 
     public JwtResponse createJwtToken(JwtRequest jwtRequest) throws Exception {
         String userName = jwtRequest.getUserName();
-        String userPassword = jwtRequest.getUserPassword();
+        String userPassword = jwtRequest.getPassword();
         authenticate(userName, userPassword);
 //        UserDetails userDetails = loadUserByUsername(userName);
         User user = userDao.findById(userName).get();

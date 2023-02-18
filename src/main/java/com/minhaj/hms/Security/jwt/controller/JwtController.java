@@ -30,14 +30,14 @@ public class JwtController {
 
 
 
-    @PostMapping({"/signin"})
+    @PostMapping({"/login"})
     public JwtResponse createJwtToken22(@RequestBody LoginRequest loginRequest) throws Exception {
         System.out.println("Test Action");
 //        (@RequestBody JwtRequest jwtRequest)
         JwtRequest jwtRequest = new JwtRequest();
 
-        jwtRequest.setUserName(loginRequest.getUsername());
-        jwtRequest.setUserPassword(loginRequest.getPassword());
+        jwtRequest.setUserName(loginRequest.getUserName());
+        jwtRequest.setPassword(loginRequest.getPassword());
 
 
         return jwtService.createJwtToken(jwtRequest);

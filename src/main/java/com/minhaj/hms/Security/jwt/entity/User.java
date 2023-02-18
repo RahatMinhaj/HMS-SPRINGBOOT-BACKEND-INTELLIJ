@@ -5,10 +5,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
@@ -22,16 +25,22 @@ public class User implements UserDetails {
 
     @Id
     private String userName;
-    private String userFirstName;
-    private String userLastName;
-    private String password;
-    private boolean credentialsNonExpired;
 
     @Column(name = "EMAIL", nullable = false)
     private String email;
-    private boolean enabled = true;
-    private boolean accountNonExpired = true;
-    private boolean accountNonLocked = true;
+
+    private String userFirstName;
+    private String userLastName;
+    private String password;
+    private LocalDate userDOB;
+    private String userLoc;
+
+    @CreatedDate
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime userRegistrationDate;
+
+    private String registrationIP;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLE",
             joinColumns = {
@@ -42,6 +51,23 @@ public class User implements UserDetails {
             }
     )
     private Set<Role> role;
+
+
+    @PrePersist
+    public void prePersist() {
+        this.userRegistrationDate = LocalDateTime.now();
+    }
+
+
+
+    private boolean credentialsNonExpired;
+
+
+    private boolean enabled = true;
+    private boolean accountNonExpired = true;
+    private boolean accountNonLocked = true;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -27,27 +27,24 @@ public class UserService {
     public void initRoleAndUser() {
 
         Role adminRole = new Role();
-        adminRole.setRoleName("Admin");
-        adminRole.setRoleDescription("Admin role");
+        adminRole.setRoleName("Super_Admin");
+        adminRole.setRoleDescription("Super Admin role");
         roleDao.save(adminRole);
+
+        Role roleAdmin = new Role();
+        roleAdmin.setRoleName("Admin");
+        roleAdmin.setRoleDescription("Admin Role For the Hospital Management User");
+        roleDao.save(roleAdmin);
 
         Role userRole = new Role();
         userRole.setRoleName("User");
-        userRole.setRoleDescription("Default role for newly created record");
+        userRole.setRoleDescription("Default role for newly created user");
         roleDao.save(userRole);
 
-
-
-        Role roleAdmin = new Role();
-        roleAdmin.setRoleName("ROLE_ADMIN");
-        roleAdmin.setRoleDescription("Default role for newly ROLE_ADMIN record");
-        roleDao.save(roleAdmin);
-
-
-        Role roleMODERATOR = new Role();
-        roleMODERATOR.setRoleName("ROLE_MODERATOR");
-        roleMODERATOR.setRoleDescription("Default role for newly ROLE_MODERATOR record");
-        roleDao.save(roleMODERATOR);
+//        Role roleMODERATOR = new Role();
+//        roleMODERATOR.setRoleName("ROLE_MODERATOR");
+//        roleMODERATOR.setRoleDescription("Default role for newly ROLE_MODERATOR record");
+//        roleDao.save(roleMODERATOR);
 
 
 
@@ -75,7 +72,7 @@ public class UserService {
     }
 
     public User registerNewUser(User user) {
-        Role role = roleDao.findById("ROLE_ADMIN").get();
+        Role role = roleDao.findById("User").get();
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(role);
         user.setRole(userRoles);

@@ -23,12 +23,21 @@ public class UserController {
         userService.initRoleAndUser();
     }
 
-    @PostMapping({"/signup"})
+    @PostMapping({"/registration"})
     public User registerNewUserNew(@RequestBody SignupRequest signupRequest) {
+        System.out.println(signupRequest.getPassword() + " pass for controller");
+
+
         User user = new User();
-        user.setUserName(signupRequest.getUsername());
+        user.setUserName(signupRequest.getUserName());
         user.setEmail(signupRequest.getEmail());
         user.setPassword(signupRequest.getPassword());
+        user.setUserFirstName(signupRequest.getUserFirstName());
+        user.setUserLastName(signupRequest.getUserLastName());
+        user.setUserDOB(signupRequest.getUserDOB());
+        user.setUserLoc(signupRequest.getUserLoc());
+        user.setRegistrationIP(signupRequest.getRegistrationIP());
+
 
 //        BeanUtils.copyProperties(signupRequest,user,"username");
 //        user.setRole((Set<Role>) new Role("User"));
