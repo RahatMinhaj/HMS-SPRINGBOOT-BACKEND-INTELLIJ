@@ -19,6 +19,10 @@ public class PathologyService implements IService<Pathology> {
         return pathRepo.findAll();
     }
 
+    public List<Pathology> getListByIDs(Long id) {
+        return pathRepo.getAllByID(id);
+    }
+
     @Override
     public Pathology saveDatas(Pathology pathology) {
         return pathRepo.save(pathology);
@@ -38,4 +42,6 @@ public class PathologyService implements IService<Pathology> {
     public Pathology editByIDs(Long id, Pathology pathology) {
         return null;
     }
+
+
 }

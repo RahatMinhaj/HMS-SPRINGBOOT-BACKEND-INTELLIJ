@@ -7,6 +7,7 @@ import com.minhaj.hms.Security.jwt.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -26,6 +27,17 @@ public class RoleController {
     @GetMapping("/filterrole/{roleName}")
     public List<User> filterRole(@PathVariable String roleName){
         return roleService.getFilterByRoleList(roleName);
+    }
+
+//    @PutMapping("/applyrole/")
+//    public User applyRole(@RequestParam("username") String username,  @RequestParam("rolename") String roleName){
+//        System.out.println(" method hit from controller : " + username + " : "  + roleName);
+//        return roleService.applyRoles(username,roleName);
+//    }
+//
+    @PutMapping("/applyrole/")
+    public User applyRole(@RequestParam("username") String username,  @RequestBody List<String> roleName){
+        return roleService.applyRoles(username,roleName);
     }
 
 

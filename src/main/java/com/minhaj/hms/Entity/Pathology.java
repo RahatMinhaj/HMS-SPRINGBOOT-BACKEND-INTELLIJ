@@ -5,13 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
 public class Pathology extends BaseEntity {
-    private Long p_id;
     private Long pathologist_id;    //should be from employee table where pathologist will be there
     private Long doc_id; ///doct reference id
     private Long pathology_type_id;
@@ -20,4 +21,11 @@ public class Pathology extends BaseEntity {
 
 
     private LocalDate pathology_date;
+
+
+    private Long patient_id;
+
+//    @ManyToOne
+//    @JoinColumn(name = "patient_id")
+//    private Patient patient;
 }

@@ -6,10 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -34,6 +32,9 @@ public class Patient extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "cabin_id", referencedColumnName = "id")
     private Cabin cabin;
+
+//    @OneToMany(mappedBy = "patient")
+//    private List<Pathology> pathology;
 
 
 }

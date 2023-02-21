@@ -6,9 +6,7 @@ import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.PathologyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -24,6 +22,12 @@ public class PathologyController implements IController<Pathology> {
     public List<Pathology> getList() {
         return pathService.getAllLists();
     }
+
+    @GetMapping("diagonosticlist/{id}")
+    public List<Pathology> getListByID(@PathVariable Long id){
+        return pathService.getListByIDs(id);
+    }
+
 
     @Override
     public Pathology create(Pathology pathology) {
