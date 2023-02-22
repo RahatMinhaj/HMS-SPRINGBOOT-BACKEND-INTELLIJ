@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.print.Doc;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class DoctorService implements IService<Doctor> {
@@ -18,7 +19,19 @@ public class DoctorService implements IService<Doctor> {
 
     @Override
     public List<Doctor> getAllLists() {
-        return doctRepo.findAll();
+        List<Doctor> dl = doctRepo.findAll();
+        List<Doctor> mdl = new ArrayList<>();
+        for (Doctor d:dl
+             ) {
+            if (d.getDepartment()!=null){
+                System.out.println("Null Dep");
+//                d.setDepartment(null);
+                d.getDepartment().setDoctors(null);
+                mdl.add(d);
+            }
+
+        }
+        return mdl;
     }
 
     @Override
@@ -28,8 +41,9 @@ public class DoctorService implements IService<Doctor> {
 
     @Override
     public Doctor getByIds(Long id) {
-
-        return doctRepo.findById(id).get();
+        Doctor d = doctRepo.findById(id).get();
+        d.getDepartment().setDoctors(null);
+        return d;
     }
 
     @Override

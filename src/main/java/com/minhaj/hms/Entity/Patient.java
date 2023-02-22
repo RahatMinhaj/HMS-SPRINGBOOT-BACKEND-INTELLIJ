@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -33,8 +34,15 @@ public class Patient extends BaseEntity {
     @JoinColumn(name = "cabin_id", referencedColumnName = "id")
     private Cabin cabin;
 
+
+
+//
+//
 //    @OneToMany(mappedBy = "patient")
 //    private List<Pathology> pathology;
 
-
+//    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @ToString.Exclude
+//    private Set<Pathology> pathologies;
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
@@ -28,4 +29,9 @@ public class Pathology extends BaseEntity {
 //    @ManyToOne
 //    @JoinColumn(name = "patient_id")
 //    private Patient patient;
+
+//@ManyToOne(fetch = FetchType.LAZY, optional = false)
+//@JoinColumn(name = "new_patient_id", nullable = false)
+//private Patient patient;
+
 }

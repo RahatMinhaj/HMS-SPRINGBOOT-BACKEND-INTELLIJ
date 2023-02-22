@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.sql.Date;
 
 
@@ -24,6 +27,8 @@ public class Doctor extends BaseEntity {
     private Date doc_join_date;
     private String image_path;
 
-
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "department_id", referencedColumnName = "id", nullable = false)
+    private Departments department;
 
 }

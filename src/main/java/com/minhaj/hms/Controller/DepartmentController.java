@@ -3,6 +3,7 @@ package com.minhaj.hms.Controller;
 
 import com.minhaj.hms.DTM.DeleteMessage;
 import com.minhaj.hms.Entity.Departments;
+import com.minhaj.hms.Entity.Doctor;
 import com.minhaj.hms.ICommonInterface.IController;
 import com.minhaj.hms.Service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200" , allowedHeaders = "*")
@@ -28,8 +32,21 @@ public class DepartmentController implements IController<Departments> {
     public List<Departments> getList() {
         System.out.println("get list hitted");
         List<Departments> dp = deptService.getAllLists();
+        List<Departments> mdp = new ArrayList<>();
+
+        for (Departments d:dp
+             ) {
+            Set<Doctor> mdc = new HashSet<>();
+            for (Doctor dc:d.getDoctors()
+                 ) {
+                dc.setDepartment(null);
+                mdc.add(dc);
+            }
+            d.setDoctors(mdc);
+            mdp.add(d);
+        }
         System.out.println(dp);
-        return dp;
+        return mdp;
     }
 
     @Override
@@ -46,7 +63,16 @@ public class DepartmentController implements IController<Departments> {
     @Override
     public Departments getByID(Long id) {
 
-        return deptService.getByIds(id);
+        Departments dp = deptService.getByIds(id);
+        Set<Doctor> mdc = new HashSet<>();
+        for (Doctor dc:dp.getDoctors()
+        ) {
+            dc.setDepartment(null);
+            mdc.add(dc);
+        }
+        dp.setDoctors(mdc);
+
+        return dp;
     }
 
     @Override
