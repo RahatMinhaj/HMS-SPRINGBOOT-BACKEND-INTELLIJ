@@ -35,6 +35,10 @@ public class User implements UserDetails {
     private LocalDate userDOB;
     private String userLoc;
 
+
+    private String userMobile;
+    private String userGender;
+
     @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime userRegistrationDate;

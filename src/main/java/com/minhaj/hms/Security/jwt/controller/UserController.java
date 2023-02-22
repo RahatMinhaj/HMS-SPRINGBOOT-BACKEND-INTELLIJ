@@ -37,8 +37,8 @@ public class UserController {
         user.setUserDOB(signupRequest.getUserDOB());
         user.setUserLoc(signupRequest.getUserLoc());
         user.setRegistrationIP(signupRequest.getRegistrationIP());
-
-
+        user.setUserMobile(signupRequest.getUserMobile());
+        user.setUserGender(signupRequest.getUserGender());
 //        BeanUtils.copyProperties(signupRequest,user,"username");
 //        user.setRole((Set<Role>) new Role("User"));
 

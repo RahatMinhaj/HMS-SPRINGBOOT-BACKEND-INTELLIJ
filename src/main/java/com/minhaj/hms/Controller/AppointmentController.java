@@ -61,6 +61,15 @@ public class AppointmentController implements IController<Appointment> {
     }
 
 
+@GetMapping("/{userName}/lists")
+    public List<Appointment> getAppointByUserName(@PathVariable String userName){
+//        System.out.println(type + "====================iiiiiiiiii");
+        return appointService.getAppointByuserName(userName);
+    }
+
+
+
+
 
 
     @Override

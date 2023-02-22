@@ -24,6 +24,9 @@ public class SignupRequest {
     private LocalDate userRegistrationDate;
     private String registrationIP;
 
+    private String userMobile;
+    private String userGender;
+
     private Set<Role> role;
 
 

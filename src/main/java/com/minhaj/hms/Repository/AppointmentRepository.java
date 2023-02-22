@@ -16,10 +16,15 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     @Query(value = "select * from appointment where ap_status = :apType",nativeQuery = true)
     public List<Appointment> getAppoinListBy(@Param("apType") String type);
 
+
+    @Query(value = "SELECT * FROM appointment where appointmentuser_name = :userName", nativeQuery = true)
+    public List<Appointment> getAllAppByUserName(@Param("userName") String userName);
+
     @Transactional
     @Modifying
     @Query(value = "update appointment set ap_status =:status where id in ( :ids )",nativeQuery = true)
     public Integer updateAllData(@Param("ids") List<Long> ids, @Param("status") String status);
+
 
 
 //    @Transactional

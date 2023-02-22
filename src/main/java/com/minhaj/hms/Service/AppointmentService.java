@@ -42,6 +42,11 @@ public class AppointmentService implements IService<Appointment> {
 return appointRepo.getAppoinListBy(type);
     }
 
+    public List<Appointment> getAppointByuserName(String userName){
+
+    return appointRepo.getAllAppByUserName(userName);
+    }
+
 
 
 

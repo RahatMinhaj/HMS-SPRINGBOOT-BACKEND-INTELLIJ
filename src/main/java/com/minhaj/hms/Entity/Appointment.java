@@ -32,4 +32,6 @@ public class Appointment extends BaseEntity {
     private Long emp_id;
     private String apStatus;
 
+    private String appointmentuserName;
+
 }
