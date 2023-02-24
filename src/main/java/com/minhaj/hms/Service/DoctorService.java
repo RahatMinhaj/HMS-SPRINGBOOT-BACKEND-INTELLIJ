@@ -21,8 +21,7 @@ public class DoctorService implements IService<Doctor> {
     public List<Doctor> getAllLists() {
         List<Doctor> dl = doctRepo.findAll();
         List<Doctor> mdl = new ArrayList<>();
-        for (Doctor d:dl
-             ) {
+        for (Doctor d:dl) {
             if (d.getDepartment()!=null){
                 System.out.println("Null Dep");
 //                d.setDepartment(null);

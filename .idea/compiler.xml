@@ -7,18 +7,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="relationship" />
         <module name="secqurity" />
         <module name="HMS-SpringBoot-Intellij" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="HMS-SpringBoot-Intellij" target="1.8" />
+      <module name="jpa-relationships" target="1.8" />
+      <module name="relationship" target="1.8" />
       <module name="secqurity" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="HMS-SpringBoot-Intellij" options="-parameters" />
+      <module name="jpa-relationships" options="-parameters" />
+      <module name="relationship" options="-parameters" />
       <module name="secqurity" options="-parameters" />
     </option>
   </component>
