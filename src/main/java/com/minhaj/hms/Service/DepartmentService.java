@@ -2,12 +2,16 @@ package com.minhaj.hms.Service;
 
 
 import com.minhaj.hms.Entity.Departments;
+import com.minhaj.hms.Entity.Doctor;
 import com.minhaj.hms.ICommonInterface.IService;
 import com.minhaj.hms.Repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DepartmentService implements IService<Departments> {
@@ -19,6 +23,29 @@ public class DepartmentService implements IService<Departments> {
     public List<Departments> getAllLists() {
         return deptRepo.findAll();
     }
+
+//    @Override
+//    public List<Departments> getAllLists() {
+//        List<Departments> dp = deptRepo.findAll();
+//        List<Departments> dpt = new ArrayList<>();
+//
+//        for (Departments dptm : dp){
+//            if(dptm.getDoctors() != null){
+//                Set<Doctor> docp = new HashSet<>();
+//                for (Doctor d: dptm.getDoctors()){
+//
+//                    d.setDepartment(null);
+//                    docp.add(d);
+//                }
+//                dptm.setDoctors(docp);
+//            }
+//            dpt.add(dptm);
+//        }
+//        return dpt;
+////        return deptRepo.findAll();
+//    }
+
+
 
 
     @Override

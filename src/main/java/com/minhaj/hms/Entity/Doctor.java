@@ -27,8 +27,8 @@ public class Doctor extends BaseEntity {
     private Date doc_join_date;
     private String image_path;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "department_id", referencedColumnName = "id", nullable = false)
-    private Departments department;
+//    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+//    @JoinColumn(name = "department_id", referencedColumnName = "id", nullable = true)
+//    private Departments department;
 
 }

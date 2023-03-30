@@ -30,23 +30,45 @@ public class DepartmentController implements IController<Departments> {
 
     @Override
     public List<Departments> getList() {
-        System.out.println("get list hitted");
-        List<Departments> dp = deptService.getAllLists();
-        List<Departments> mdp = new ArrayList<>();
+        return deptService.getAllLists();
 
-        for (Departments d:dp
-             ) {
-            Set<Doctor> mdc = new HashSet<>();
-            for (Doctor dc:d.getDoctors()
-                 ) {
-                dc.setDepartment(null);
-                mdc.add(dc);
-            }
-            d.setDoctors(mdc);
-            mdp.add(d);
-        }
-        System.out.println(dp);
-        return mdp;
+//        System.out.println("get list hitted");
+//        List<Departments> dp = deptService.getAllLists();
+//        List<Departments> mdp = new ArrayList<>();
+//
+//        for (Departments d:dp
+//             ) {
+//            Set<Doctor> mdc = new HashSet<>();
+//            for (Doctor dc:d.getDoctors()
+//                 ) {
+//                dc.setDepartment(null);
+//                mdc.add(dc);
+//            }
+//            d.setDoctors(mdc);
+//            mdp.add(d);
+//        }
+//        System.out.println(dp);
+//        return mdp;
+
+
+//        List<Owner> lis = ownerRepo.findAll();
+//        List<Owner> ls = new ArrayList<>();
+//
+//        for (Owner d:lis) {
+//            if (d.getProperties()!=null){
+//                Set<Property> pLs = new HashSet<>();
+//                for (Property p:d.getProperties()
+//                ) {
+//                    p.setOwner(null);
+//                    pLs.add(p);
+//                }
+//                d.setProperties(pLs);
+//            }
+//            ls.add(d);
+//        }
+//
+//
+//        return ls;
     }
 
     @Override
@@ -65,12 +87,12 @@ public class DepartmentController implements IController<Departments> {
 
         Departments dp = deptService.getByIds(id);
         Set<Doctor> mdc = new HashSet<>();
-        for (Doctor dc:dp.getDoctors()
-        ) {
-            dc.setDepartment(null);
-            mdc.add(dc);
-        }
-        dp.setDoctors(mdc);
+//        for (Doctor dc:dp.getDoctors()
+//        ) {
+//            dc.setDepartment(null);
+//            mdc.add(dc);
+//        }
+//        dp.setDoctors(mdc);
 
         return dp;
     }

@@ -1,6 +1,7 @@
 package com.minhaj.hms.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -28,9 +29,9 @@ public class Departments {
 //    private Cabin cabin;
 
 
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private Set<Doctor> doctors;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "department", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, targetEntity = Doctor.class)
+////    @ToString.Exclude
+//    private Set<Doctor> doctors;
 
 }

@@ -16,22 +16,44 @@ public class DoctorService implements IService<Doctor> {
  @Autowired
  DoctorRepository doctRepo;
 
-
     @Override
     public List<Doctor> getAllLists() {
-        List<Doctor> dl = doctRepo.findAll();
-        List<Doctor> mdl = new ArrayList<>();
-        for (Doctor d:dl) {
-            if (d.getDepartment()!=null){
-                System.out.println("Null Dep");
-//                d.setDepartment(null);
-                d.getDepartment().setDoctors(null);
-                mdl.add(d);
-            }
-
-        }
-        return mdl;
+        return doctRepo.findAll();
     }
+
+
+
+
+
+//    @Override
+//    public List<Doctor> getAllLists() {
+//        List<Doctor> dl = doctRepo.findAll();
+//        List<Doctor> mdl = new ArrayList<>();
+//        for (Doctor d:dl) {
+//            if(d.getDepartment()!= null){
+//                d.getDepartment().setDoctors(null);
+//            }
+//            mdl.add(d);
+//        }
+//        return mdl;
+//    }
+
+
+//    List<Property> lis = propRepo.findAll();
+//    List<Property> ls = new ArrayList<>();
+//
+//        for (Property d:lis) {
+//        if (d.getOwner()!=null){
+//            d.getOwner().setProperties(null);
+//        }
+//        ls.add(d);
+//    }
+//        return ls;
+//}
+//
+
+
+
 
     @Override
     public Doctor saveDatas(Doctor doctor) {
@@ -41,7 +63,7 @@ public class DoctorService implements IService<Doctor> {
     @Override
     public Doctor getByIds(Long id) {
         Doctor d = doctRepo.findById(id).get();
-        d.getDepartment().setDoctors(null);
+//        d.getDepartment().setDoctors(null);
         return d;
     }
 

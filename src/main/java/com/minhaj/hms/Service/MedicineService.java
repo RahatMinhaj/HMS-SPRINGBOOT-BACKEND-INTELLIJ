@@ -1,5 +1,6 @@
 package com.minhaj.hms.Service;
 
+import com.minhaj.hms.Entity.Doctor;
 import com.minhaj.hms.Entity.Medicine;
 import com.minhaj.hms.ICommonInterface.IService;
 import com.minhaj.hms.Repository.MedicineRepository;
@@ -29,7 +30,8 @@ public class MedicineService implements IService<Medicine> {
 
     @Override
     public Medicine getByIds(Long id) {
-        return null;
+        Medicine med = medRepo.findById(id).get();
+        return med;
     }
 
     @Override

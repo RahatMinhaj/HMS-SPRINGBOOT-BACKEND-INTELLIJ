@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HMS-SpringBoot-Intellij.iml" filepath="$PROJECT_DIR$/HMS-SpringBoot-Intellij.iml" />
       <module fileurl="file://$USER_HOME$/Desktop/Spring Relation/relationship/relationship/relationship.iml" filepath="$USER_HOME$/Desktop/Spring Relation/relationship/relationship/relationship.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../JPA-Relationship/relationship (1).iml" filepath="$PROJECT_DIR$/../JPA-Relationship/relationship (1).iml" />
       <module fileurl="file://$USER_HOME$/Desktop/New folder (3)/Spring-practice-project/secqurity_JWT_SPRING_2.7.8/secqurity.iml" filepath="$USER_HOME$/Desktop/New folder (3)/Spring-practice-project/secqurity_JWT_SPRING_2.7.8/secqurity.iml" />
     </modules>
   </component>

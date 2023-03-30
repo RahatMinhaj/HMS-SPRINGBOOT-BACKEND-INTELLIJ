@@ -40,7 +40,7 @@ public class MedicineController implements IController<Medicine> {
 
     @Override
     public Medicine getByID(Long id) {
-        return null;
+        return medService.getByIds(id);
     }
 
     @Override
