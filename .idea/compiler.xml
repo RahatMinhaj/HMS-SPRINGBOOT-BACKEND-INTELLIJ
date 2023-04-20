@@ -7,8 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="relationship" />
-        <module name="relationship (1)" />
         <module name="secqurity" />
         <module name="HMS-SpringBoot-Intellij" />
       </profile>
