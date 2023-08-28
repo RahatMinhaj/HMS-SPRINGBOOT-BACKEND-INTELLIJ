@@ -12,7 +12,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="HMS-SpringBoot-Intellij" target="1.8" />
       <module name="jpa-relationships" target="1.8" />
       <module name="relationship" target="1.8" />
       <module name="relationship (1)" target="1.8" />
